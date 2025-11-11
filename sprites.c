@@ -2,14 +2,14 @@
 ============================================================
   Fichero: sprites.c
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 05:11:21
+  Ultima Modificacion: dimarts, 11 de novembre de 2025, 19:02:46
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
 
 #include "zaxxon.h"
 
-address snaved,snavei;
+address snaved,snavei,stierra;
 
 static address actdir=ORAM;
 
@@ -34,7 +34,21 @@ static void snave_init() {
 					"000000110000"
 	};
 	actdir=sprnew(snavei,7,datai);
-}	
+}
+
+static void smundo_init() {
+	char* data[]={	"1111111111",
+					"1101110111",
+					"1111111111",
+					"1111011101",
+					"1111111111",
+					"1011110111",
+					"1111111111",
+					"1101100111",
+					"1111111111"
+	};
+	stierra=actdir;
+	actdir=sprnew(stierra,9,data);
 
 void sprites_init() {
 	snave_init();

@@ -82,6 +82,6 @@ check:
 #MAKEFILE VARIABLE
 
 NAME = zaxxon
-SCRS = zxou.c sprite.c sprites.c zaxxon.c
+SCRS = zxou.c sprite.c sprites.c mundo.c zaxxon.c
 INCLUDES = -lX11
 

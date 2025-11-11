@@ -2,7 +2,7 @@
 ============================================================
   Fichero: zaxxon.h
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 05:24:31
+  Ultima Modificacion: dimarts, 11 de novembre de 2025, 19:02:46
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -10,11 +10,15 @@
 #ifndef ZAXXON_H
 #define ZAXXON_H
 
+#include <stdio.h>
+
 #include "sprite.h"
 
 //CONSTANTES
 
 #define MOVILES 10 //numero de moviles maximo en pantalla
+
+#define MUNLEN 500 //longitud del mundo en sectores
 
 //tipos de moviles
 #define JUGADOR 0
@@ -37,7 +41,7 @@ typedef struct {
 
 //VARIABLES
 
-extern address snavei,snaved; //direcciones de los sprites
+extern address snavei,snaved,stierra; //direcciones de los sprites
 
 extern Movil movil[MOVILES]; //almacen de los moviles en pantalla (jugador siempre el 0)
 extern int moviles; //numero de moviles en pantalla
@@ -46,6 +50,9 @@ extern int moviles; //numero de moviles en pantalla
 
 void sprites_init();
 //define todos los sprites
+
+void mundo_init();
+//define el mundo
 
 byte movil_new(Movil movil);
 //definicion de un nuevo movil
