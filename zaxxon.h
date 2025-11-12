@@ -2,7 +2,7 @@
 ============================================================
   Fichero: zaxxon.h
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 19:02:46
+  Ultima Modificacion: mié 12 nov 2025 10:51:09
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -53,6 +53,9 @@ void sprites_init();
 
 void mundo_init();
 //define el mundo
+
+void mundo_show(int posini);
+//indica el pixel de la altura que ocupa la posicion x=0 de la pantalla
 
 byte movil_new(Movil movil);
 //definicion de un nuevo movil

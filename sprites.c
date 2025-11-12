@@ -2,7 +2,7 @@
 ============================================================
   Fichero: sprites.c
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 19:02:46
+  Ultima Modificacion: mié 12 nov 2025 11:00:40
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -49,9 +49,11 @@ static void smundo_init() {
 	};
 	stierra=actdir;
 	actdir=sprnew(stierra,9,data);
+}
 
 void sprites_init() {
 	snave_init();
+	smundo_init();
 }
 
 

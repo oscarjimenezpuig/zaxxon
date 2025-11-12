@@ -2,7 +2,7 @@
 ============================================================
   Fichero: zaxxon.c
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 18:31:12
+  Ultima Modificacion: mié 12 nov 2025 11:14:16
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -11,9 +11,14 @@
 
 begin
 	sprites_init();
-	sprins(snavei,10,7,100,100);
-	sprins(snaved,10,7,100,150);
-	show;
 	mundo_init();
-	while(inkey('q')==0) listen;
+	int pos=0;
+	while(inkey('q')==0) {
+		sprins(snaved,10,7,100,100);
+		mundo_show(pos++);
+		show;
+		pause(0.01);
+		cls;
+		listen;
+	}
 end

@@ -2,14 +2,14 @@
 ============================================================
   Fichero: mundo.c
   Creado: 11-11-2025
-  Ultima Modificacion: dimarts, 11 de novembre de 2025, 19:16:58
+  Ultima Modificacion: mié 12 nov 2025 11:28:22
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
 
 #include "zaxxon.h"
 
-#define RAI 88 //bit que indica la altura inicial
+#define RAI 128 //sprite que indica la altura inicial
 #define SPRW 10 //ancho del sprite de suelo
 #define SPRH 9 //alto del sprite de suelo
 
@@ -59,20 +59,29 @@ static void altura_print() {
 
 void mundo_init() {
 	randomize(-1);
-	int altura[MUNLEN];
 	altura_define(0,0,altura);
 	if(!altura_arregla(altura+MUNLEN-1,0)) puts("FALLO EN EL ARREGLO DE LA ALTURA");
 	altura_print();
 }
 
-void mundo_show(int altura*,int posini) {
-	const int RETROCESO=(SCRWP/2); //en pixels
-	int primero=(posini-RETROCESO)/SPRW;
-	if(primero<0) primero=MUNLEN-primero;
-	int* ptr=altura+primero;
-	int x=0
+void mundo_show(int posini) {
+	const int LENALP=MUNLEN*SPRW;
+	posini=posini%LENALP;
+	int pos=posini/SPRW;
+	int res=posini%SPRW;
+	int x=0-res;
+	while(x<SCRWP) {
+		int ala=altura[pos];
+		int y=RAI-SPRH*ala;
+		sprins(stierra,SPRW,SPRH,x,y);
+		x+=SPRW;
+		pos=(pos+1)%MUNLEN;
+		printf("%i ",pos);//dbg
+	}
+	puts("");//dbg
+}
 
-
+	
 
 
 
