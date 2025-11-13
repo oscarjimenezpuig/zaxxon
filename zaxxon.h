@@ -2,7 +2,7 @@
 ============================================================
   Fichero: zaxxon.h
   Creado: 11-11-2025
-  Ultima Modificacion: mié 12 nov 2025 10:51:09
+  Ultima Modificacion: dimecres, 12 de novembre de 2025, 20:09:44
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -18,13 +18,20 @@
 
 #define MOVILES 10 //numero de moviles maximo en pantalla
 
-#define MUNLEN 500 //longitud del mundo en sectores
+#define MUNLEN 100 //longitud del mundo en sectores
 
 //tipos de moviles
 #define JUGADOR 0
 #define COHETE 1
 
+//cinematica
+#define ACMAX 5
+#define VEMAX 5 
+
 //METODOS
+
+#define ABS(A) (((A)>0)?(A):(-(A)))
+#define SGN(A) ((A)>0)?1:((A)<0)?-1:0
 
 //TIPOS
 
@@ -41,7 +48,7 @@ typedef struct {
 
 //VARIABLES
 
-extern address snavei,snaved,stierra; //direcciones de los sprites
+extern address snavei,snaved,smun; //direcciones de los sprites
 
 extern Movil movil[MOVILES]; //almacen de los moviles en pantalla (jugador siempre el 0)
 extern int moviles; //numero de moviles en pantalla
@@ -59,5 +66,8 @@ void mundo_show(int posini);
 
 byte movil_new(Movil movil);
 //definicion de un nuevo movil
+
+void movil_move(Movil* movil);
+//mueve un movil a partir de su cinematica
 
 #endif //ZAXXON_H

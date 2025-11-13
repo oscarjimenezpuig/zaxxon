@@ -2,7 +2,7 @@
 ============================================================
   Fichero: mundo.c
   Creado: 11-11-2025
-  Ultima Modificacion: mié 12 nov 2025 11:28:22
+  Ultima Modificacion: dimecres, 12 de novembre de 2025, 20:06:54
   oSCAR jIMENEZ pUIG                                       
 ============================================================
 */
@@ -11,7 +11,7 @@
 
 #define RAI 128 //sprite que indica la altura inicial
 #define SPRW 10 //ancho del sprite de suelo
-#define SPRH 9 //alto del sprite de suelo
+#define SPRH 10 //alto del sprite de suelo
 
 static int altura[MUNLEN];
 
@@ -35,8 +35,6 @@ static void altura_define(int hactual,int hfutura,int* ptr) {
 		altura_define(*(ptr-1),hfutura,ptr);
 	}
 }
-
-#define ABS(A) (((A)>0)?(A):(-(A)))
 
 static int altura_arregla(int* ptr,int hact) {
 	if(ptr!=altura) {
@@ -73,10 +71,9 @@ void mundo_show(int posini) {
 	while(x<SCRWP) {
 		int ala=altura[pos];
 		int y=RAI-SPRH*ala;
-		sprins(stierra,SPRW,SPRH,x,y);
-		x+=SPRW;
+		sprins(smun,SPRW,SPRH,x,y);
 		pos=(pos+1)%MUNLEN;
-		printf("%i ",pos);//dbg
+		x+=SPRW;
 	}
 	puts("");//dbg
 }
